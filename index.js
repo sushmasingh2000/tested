@@ -40,7 +40,7 @@ app.post('/login', async (req, res) => {
 
 // Public route to test the app
 app.get('/', (req, res) => {
-  res.send('Hello from Node.js app with Login API!');
+  res.send('Hello 🤣🤣');
 });
 
 app.listen(port, () => {

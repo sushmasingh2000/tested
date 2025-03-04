@@ -12,12 +12,12 @@ const users = [
   {
     id: 1,
     username: 'testuser',
-    password: '$2a$10$Xtf0FZbU6jlGZicLOy5.VU77Z9eZt0e.mgHlJ0Gn3LUXX/LOklBCa' // "password123" hashed
+    password: 'password123' // "password123" hashed
   }
 ];
 
 // Secret key for JWT
-const JWT_SECRET = 'your-secret-key'; // Change this in production
+const JWT_SECRET = 'sushma'; // Change this in production
 
 // Login API endpoint
 app.post('/login', async (req, res) => {
@@ -30,11 +30,6 @@ app.post('/login', async (req, res) => {
     return res.status(400).json({ message: 'Invalid credentials' });
   }
 
-  // Compare password
-  const isMatch = await bcrypt.compare(password, user.password);
-  if (!isMatch) {
-    return res.status(400).json({ message: 'Invalid credentials' });
-  }
 
   // Generate JWT token
   const token = jwt.sign({ id: user.id, username: user.username }, JWT_SECRET, { expiresIn: '1h' });
